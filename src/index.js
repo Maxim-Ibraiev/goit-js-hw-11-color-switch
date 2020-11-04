@@ -13,6 +13,7 @@ const randomIntegerFromInterval = (min, max) => {
 const startRef = document.querySelector('[data-action="start"]');
 const stopRef = document.querySelector('[data-action="stop"]');
 let bodyRef = document.querySelector("body");
+const timeForInterval = 1000;
 let intervalId = null;
 let themeChanging = false;
 
@@ -24,11 +25,12 @@ function onStartChange() {
 
   intervalId = setInterval(() => {
     bodyRef.style.backgroundColor = colors[randomIntegerFromInterval(0, 6)];
-  }, 1000);
+  }, timeForInterval);
 
   themeChanging = true;
 }
 
 function onStopChange() {
-  setInterval(clearInterval(intervalId), (themeChanging = false)), 1000;
+  setInterval(clearInterval(intervalId), (themeChanging = false)),
+    timeForInterval;
 }
